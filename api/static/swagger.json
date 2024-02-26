@@ -50,7 +50,7 @@
                 "description": "Invalid request data"
               },
               "415": {
-                "description": "UNSUPPORTED MEDIA TYPE"
+                "description": "UNSUPPORTED MEDIA TYPE."
               }
             }
           }
