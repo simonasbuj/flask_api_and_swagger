@@ -1,0 +1,72 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Access API",
+      "version": "1.0.0"
+    },
+    "paths": {
+        "/": {
+          "get": {
+            "description": "Returns message showing app is up",
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "Successful operation"
+              },
+              "404": {
+                "description": "BAD BAD BAD"
+              }
+            }
+          }
+        },
+        "/reload": {
+          "post": {
+            "description": "Reload Data",
+            "consumes": [
+              "application/json",
+              "fake"
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "name": "access data",
+                "in": "body",
+                "description": "JSON data for the api",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/ReloadData"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Data Reloaded"
+              },
+              "400": {
+                "description": "Invalid request data"
+              },
+              "415": {
+                "description": "UNSUPPORTED MEDIA TYPE"
+              }
+            }
+          }
+        }
+    },
+    "definitions": {
+      "ReloadData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "server": {
+            "type": "string"
+          }
+        }
+      }
+    }
+}
